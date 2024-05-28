@@ -12,7 +12,7 @@ class EmployeeView(View):
         Método Post para a criação de um funcionário
         """
         data = json.loads(request.body)
-        employee = create_employee(name=data["name"], sector=data["sector"])
+        employee = create_employee(name=data["name"], sector_id=data["sector"])
         serialized_employee = serialize_dataclass(Employees._make_transport(employee))
         return JsonResponse(
             {
